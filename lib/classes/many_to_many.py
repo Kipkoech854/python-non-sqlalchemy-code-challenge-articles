@@ -112,12 +112,14 @@ class Magazine:
 
     @category.setter
     def category(self, value):
-        if not isinstance(value, str):
-            raise TypeError("Category must be a string")
+        if  not isinstance(value, str) :
+            raise TypeError("Category must be a string ")
         if len(value) == 0:
-            raise ValueError("Category must be longer than 0 characters")
-        self._category = value
-    
+            raise ValueError('categorymust be longer than 0 characters')
+        else:         
+            self._category = value
+        
+           
     def articles(self):
         return self._articles
 
@@ -143,6 +145,7 @@ class Magazine:
 
     @classmethod
     def top_publisher(cls):
-        if not cls.all:
+        if not Article.all:
             return None
-        return max(cls.all, key=lambda magazine: len(magazine.articles()), default=None)
+        else:    
+            return max(cls.all, key=lambda magazine: len(magazine.articles()), default=None)
